@@ -1,0 +1,67 @@
+//buildscript {
+//    def localProperties = new Properties()
+//    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+//
+//    repositories {
+//        google()
+//        jcenter()
+//        mavenCentral()
+//        maven { url "https://jitpack.io" }
+//
+//        maven {
+//            credentials {
+//                username = localProperties['LIVENESS_SDK_USER_NAME']
+//                password = localProperties['LIVENESS_SDK_PASSWORD']
+//            }
+//            authentication {
+//                basic(BasicAuthentication)
+//            }
+//            url "https://api.bitbucket.org/2.0/repositories/" + "krzandroid/sdk/src/releases/"
+//        }
+//    }
+//}
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.silentlivenesstest'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.silentlivenesstest"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'com.karza.liveness:livenessdk:2.1.0'
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

@@ -1,0 +1,27 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+id 'com.android.application' version '8.1.2' apply false
+}
+
+allprojects {
+
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+
+        maven {
+            credentials {
+                username = localProperties['LIVENESS_SDK_USER_NAME']
+                password = localProperties['LIVENESS_SDK_PASSWORD']
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
+            url "https://api.bitbucket.org/2.0/repositories/" + "krzandroid/sdk/src/releases/"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.sdk.karzalivness.KLivenessView
+        android:visibility="visible"
+        android:id="@+id/kLiveView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:klive_background="@color/white"
+        app:klive_circle_width="5dp"
+        app:klive_color_invalid_face="@color/invalid_face"
+        app:klive_color_valid_face="@color/valid_face"
+        app:klive_color_warning_face="@color/warning_face"
+        app:klive_time_out_second="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </com.sdk.karzalivness.KLivenessView>
+
+    <TextView
+        android:id="@+id/facestatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kLiveView" />
+
+    <TextView
+        android:id="@+id/facetypestatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/facestatus" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
